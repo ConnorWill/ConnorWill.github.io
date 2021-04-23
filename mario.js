@@ -1,4 +1,4 @@
-let height = 5
+
 
 
 // TODO #2
@@ -16,7 +16,9 @@ let height = 5
  *       #####
  *      ######
  */
-
+document.getElementById("button").addEventListener("click", masterTotal);
+function masterTotal(){
+var height = document.getElementById("height").value;
 function printPyramid( brick, height ) {
   let layer = ""
   for (let spaces = height - brick; spaces >= 0; spaces--) {
@@ -26,14 +28,20 @@ function printPyramid( brick, height ) {
     layer += "#"
   }
    return layer
-  }
+ 
+}
   
-for (let i = 1; i <= height; i++) {
-  console.log(printPyramid(i, height))
+  for (let i = 1; i <= height; i++) {
+    console.log(printPyramid(i, height))
+      rowStr = printPyramid(i, height)
+      var para = document.createElement("p");
+      let node = document.createTextNode(rowStr);
+      para.appendChild(node);
+      let element = document.getElementById("pyramid");
+      element.appendChild(para);
+  }
 }
 
-var output = document.getElementById("pyramid");
-output.innerHTML = "This is where the pyramid is supposed to be but I couldnt figue it out, so I did this. :)";
     // TODO #1
     // print that pyramid!
 
